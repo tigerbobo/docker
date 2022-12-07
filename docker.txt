@@ -1,0 +1,35 @@
+Docker Engine:
+
+
+{
+  "builder": {
+    "gc": {
+      "defaultKeepStorage": "20GB",
+      "enabled": true
+    }
+  },
+  "experimental": false,
+  "features": {
+    "buildkit": true
+  },
+  "registry-mirrors": [
+    "https://registry.docker-cn.com",
+    "http://hub-mirror.c.163.com",
+    "https://docker.mirrors.ustc.edu.cn"
+  ]
+}
+
+
+Command:
+
+docker run --name ubuntu1.0.3.0 -it ubuntu:1.0.3.0
+
+docker attach 559e3817e663
+
+Ctrl + P, Ctrl + Q
+
+docker commit -m "install make" -a "youyb" af45c647cca6 ubuntu:1.0.2.0
+
+docker cp 0f54ab290067:/usr/src/makefile d:/makefile
+docker cp d:/python-3.8.6.tgz 559e3817e663:/usr/setup/python/python-3.8.6.tgz
+
