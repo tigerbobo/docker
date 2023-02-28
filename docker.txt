@@ -33,3 +33,25 @@ docker commit -m "install make" -a "youyb" af45c647cca6 ubuntu:1.0.2.0
 docker cp 0f54ab290067:/usr/src/makefile d:/makefile
 docker cp d:/python-3.8.6.tgz 559e3817e663:/usr/setup/python/python-3.8.6.tgz
 
+docker run --name ubuntu_1.0.8 -it ubuntu:1.0.8.0 /bin/bash
+docker run -d --name ubuntu_desktop -v /dev/shm:/dev/shm -p 6080:80 dorowu/ubuntu-desktop-lxde-vnc
+
+http://172.31.240.1:6080/
+
+docker commit -m "create socket source code" bcfdde3df169 ubuntu:1.0.8.0
+
+
+docker exec -it dd9ac510e923110cf6a9dc00c14b2fdcce5246ad31ea9515703e0283a01eeff6 /bin/bash
+
+docker cp D:\temp\img.bmp 9094d5af8f81:/temp/img.bmp
+
+
+docker images
+
+docker inspect -f {{".Comment"}} 2a74da17d000
+
+
+
+
+sodu apt update
+sudo apt install libgl1-mesa-glx
