@@ -22,36 +22,36 @@ Docker Engine:
 
 Command:
 
-docker run --name ubuntu1.0.3.0 -it ubuntu:1.0.3.0
+docker pull ubuntu:20.04
 
-docker attach 559e3817e663
+sudo apt-get update
 
-Ctrl + P, Ctrl + Q
+apt-get install gcc
+apt-get install g++
+apt-get install vim
 
-docker commit -m "install make" -a "youyb" af45c647cca6 ubuntu:1.0.2.0
+apt-get install python3.10
+apt-get install pip
 
-docker cp 0f54ab290067:/usr/src/makefile d:/makefile
-docker cp d:/python-3.8.6.tgz 559e3817e663:/usr/setup/python/python-3.8.6.tgz
+apt-get install libgl1
+apt-get install libglib2.0-0
+
+docker commit -m "install gcc, g++, vim, python3, pip" 7ff203de4e15 ubuntu:1.0.0.0
 
 docker run --name ubuntu_1.0.8 -it ubuntu:1.0.8.0 /bin/bash
-docker run -d --name ubuntu_desktop -v /dev/shm:/dev/shm -p 6080:80 dorowu/ubuntu-desktop-lxde-vnc
 
-http://172.31.240.1:6080/
-
-docker commit -m "create socket source code" bcfdde3df169 ubuntu:1.0.8.0
-
-
-docker exec -it dd9ac510e923110cf6a9dc00c14b2fdcce5246ad31ea9515703e0283a01eeff6 /bin/bash
+docker exec -it 7ff203de4e15621d129265297a99bfcea8360b5df1453cc7c99b176f9268a87f /bin/bash
 
 docker cp D:\temp\img.bmp 9094d5af8f81:/temp/img.bmp
 
-
 docker images
+
+docker save -o D:\ubuntu1.0.0.0.tar ubuntu:1.0.0.0
+docker load < D:\ubuntu1.0.0.0.tar
 
 docker inspect -f {{".Comment"}} 2a74da17d000
 
+net localgroup docker-users "you yingbo" /add
 
-
-
-sodu apt update
-sudo apt install libgl1-mesa-glx
+docker run -d --name ubuntu_desktop -v /dev/shm:/dev/shm -p 6080:80 dorowu/ubuntu-desktop-lxde-vnc
+http://172.31.240.1:6080/
