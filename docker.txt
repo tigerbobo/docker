@@ -47,7 +47,7 @@ docker cp D:\temp\img.bmp 9094d5af8f81:/temp/img.bmp
 docker images
 
 docker save -o D:\ubuntu1.0.0.0.tar ubuntu:1.0.0.0
-docker load < D:\ubuntu1.0.0.0.tar
+docker load -i D:\ubuntu1.0.0.0.tar
 
 docker inspect -f {{".Comment"}} 2a74da17d000
 
