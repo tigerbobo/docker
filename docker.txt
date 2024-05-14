@@ -40,6 +40,9 @@ docker commit -m "install gcc, g++, vim, python3, pip" 7ff203de4e15 ubuntu:1.0.0
 
 docker run --name ubuntu_1.0.8 -it ubuntu:1.0.8.0 /bin/bash
 
+docker start ubuntu_1.0.8
+
+docker exec -it ubuntu_1.0.8 /bin/bash
 docker exec -it 7ff203de4e15621d129265297a99bfcea8360b5df1453cc7c99b176f9268a87f /bin/bash
 
 docker cp D:\temp\img.bmp 9094d5af8f81:/temp/img.bmp
